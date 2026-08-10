@@ -1,0 +1,349 @@
+import Foundation
+import SwiftUI
+import WidgetKit
+
+struct QPState: Codable {
+    var plan: KhatmPlan? = nil
+    var archive: [KhatmRecord] = []
+    var totalPagesEver: Int = 0
+    var readingDays: Set<String> = []
+    var guidesRead: Set<String> = []
+    var quizBest: Int = 0
+    var quizRounds: Int = 0
+    var earned: Set<String> = []
+    var showArabicNames: Bool = true
+    var hapticsOn: Bool = true
+    var onboarded: Bool = false
+
+    init() {}
+
+    enum CodingKeys: String, CodingKey {
+        case plan, archive, totalPagesEver, readingDays, guidesRead
+        case quizBest, quizRounds, earned, showArabicNames, hapticsOn, onboarded
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        plan = try? c.decodeIfPresent(KhatmPlan.self, forKey: .plan)
+        archive = (try? c.decodeIfPresent([KhatmRecord].self, forKey: .archive)) ?? []
+        totalPagesEver = (try? c.decodeIfPresent(Int.self, forKey: .totalPagesEver)) ?? 0
+        readingDays = (try? c.decodeIfPresent(Set<String>.self, forKey: .readingDays)) ?? []
+        guidesRead = (try? c.decodeIfPresent(Set<String>.self, forKey: .guidesRead)) ?? []
+        quizBest = (try? c.decodeIfPresent(Int.self, forKey: .quizBest)) ?? 0
+        quizRounds = (try? c.decodeIfPresent(Int.self, forKey: .quizRounds)) ?? 0
+        earned = (try? c.decodeIfPresent(Set<String>.self, forKey: .earned)) ?? []
+        showArabicNames = (try? c.decodeIfPresent(Bool.self, forKey: .showArabicNames)) ?? true
+        hapticsOn = (try? c.decodeIfPresent(Bool.self, forKey: .hapticsOn)) ?? true
+        onboarded = (try? c.decodeIfPresent(Bool.self, forKey: .onboarded)) ?? false
+    }
+}
+
+struct PaceReport {
+    var todayGoal: Int
+    var todayRead: Int
+    var remaining: Int
+    var percent: Double
+    var statusLine: String
+    var statusKind: Int
+    var forecastLine: String
+    var targetLine: String
+    var avgPerDay: Double
+}
+
+final class QPStore: ObservableObject {
+    @Published private(set) var state: QPState
+    @Published var newBadge: QPBadge? = nil
+    @Published var activeTab: Int = 0
+    @Published var celebrateKhatm: Bool = false
+
+    private static let key = "quranpace.state.v1"
+
+    static let dayFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "en_US_POSIX")
+        f.dateFormat = "yyyy-MM-dd"
+        return f
+    }()
+
+    static let niceDate: DateFormatter = {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "en_US")
+        f.dateFormat = "MMM d"
+        return f
+    }()
+
+    init() {
+        if let data = UserDefaults.standard.data(forKey: Self.key),
+           let decoded = try? JSONDecoder().decode(QPState.self, from: data) {
+            state = decoded
+        } else {
+            state = QPState()
+        }
+        QPHaptics.enabled = state.hapticsOn
+        publishSnapshot()
+    }
+
+    private func save() {
+        if let data = try? JSONEncoder().encode(state) {
+            UserDefaults.standard.set(data, forKey: Self.key)
+        }
+        publishSnapshot()
+    }
+
+    static func dayKey(_ date: Date = Date()) -> String {
+        dayFormatter.string(from: date)
+    }
+
+    var todayRead: Int {
+        state.plan?.log[Self.dayKey()] ?? 0
+    }
+
+    var streak: Int {
+        var run = 0
+        var day = Date()
+        let cal = Calendar.current
+        if !state.readingDays.contains(Self.dayKey(day)) {
+            guard let prev = cal.date(byAdding: .day, value: -1, to: day) else { return 0 }
+            day = prev
+        }
+        while state.readingDays.contains(Self.dayKey(day)) {
+            run += 1
+            guard let prev = cal.date(byAdding: .day, value: -1, to: day) else { break }
+            day = prev
+        }
+        return run
+    }
+
+    func pace() -> PaceReport {
+        guard let plan = state.plan else {
+            return PaceReport(todayGoal: 0, todayRead: 0, remaining: QuranMap.totalPages, percent: 0, statusLine: "No khatm underway", statusKind: 0, forecastLine: "", targetLine: "", avgPerDay: 0)
+        }
+        let cal = Calendar.current
+        let today = cal.startOfDay(for: Date())
+        let read = todayRead
+        let remaining = QuranMap.totalPages - plan.position
+        let percent = Double(plan.position) / Double(QuranMap.totalPages)
+
+        var goal = plan.pagesPerDay
+        var targetLine = ""
+        var statusLine = "On pace"
+        var statusKind = 1
+
+        if plan.mode == .byDate, let target = plan.targetDate {
+            let targetDay = cal.startOfDay(for: target)
+            let daysLeft = max(1, (cal.dateComponents([.day], from: today, to: targetDay).day ?? 0) + 1)
+            let leftAtDayStart = remaining + read
+            goal = max(1, Int(ceil(Double(leftAtDayStart) / Double(daysLeft))))
+            targetLine = "Finishing \(Self.niceDate.string(from: target))"
+            let startDay = cal.startOfDay(for: plan.startDate)
+            let totalDays = max(1, (cal.dateComponents([.day], from: startDay, to: targetDay).day ?? 1) + 1)
+            let elapsed = min(totalDays, max(0, (cal.dateComponents([.day], from: startDay, to: today).day ?? 0)))
+            let planned = Int(Double(QuranMap.totalPages) * Double(elapsed) / Double(totalDays))
+            let delta = plan.position - planned
+            if delta >= 5 {
+                statusLine = "Ahead by \(delta) pages"
+                statusKind = 2
+            } else if delta <= -5 {
+                statusLine = "Behind by \(-delta) pages"
+                statusKind = 0
+            } else {
+                statusLine = "On pace"
+                statusKind = 1
+            }
+        } else {
+            targetLine = "\(plan.pagesPerDay) pages a day"
+            statusLine = read >= goal ? "Today's portion done" : "On pace"
+            statusKind = read >= goal ? 2 : 1
+        }
+
+        let startDay = cal.startOfDay(for: plan.startDate)
+        let activeDays = max(1, (cal.dateComponents([.day], from: startDay, to: today).day ?? 0) + 1)
+        let avg = Double(plan.position) / Double(activeDays)
+        var forecastLine = ""
+        if remaining > 0 && avg > 0.15 {
+            let daysNeeded = Int(ceil(Double(remaining) / avg))
+            if let eta = cal.date(byAdding: .day, value: daysNeeded, to: today) {
+                forecastLine = "At your pace: \(Self.niceDate.string(from: eta))"
+            }
+        }
+        return PaceReport(
+            todayGoal: goal, todayRead: read, remaining: remaining, percent: percent,
+            statusLine: statusLine, statusKind: statusKind,
+            forecastLine: forecastLine, targetLine: targetLine, avgPerDay: avg
+        )
+    }
+
+    func startKhatm(mode: KhatmMode, targetDate: Date?, pagesPerDay: Int, startingAt page: Int = 0) {
+        var plan = KhatmPlan()
+        plan.startDate = Date()
+        plan.mode = mode
+        plan.targetDate = targetDate
+        plan.pagesPerDay = max(1, pagesPerDay)
+        plan.position = min(max(0, page), QuranMap.totalPages)
+        state.plan = plan
+        evaluateBadges()
+        save()
+    }
+
+    func logPages(_ count: Int) {
+        guard var plan = state.plan, count != 0 else { return }
+        let day = Self.dayKey()
+        let applied = max(-(plan.log[day] ?? 0), min(count, QuranMap.totalPages - plan.position))
+        guard applied != 0 else { return }
+        plan.position = min(QuranMap.totalPages, max(0, plan.position + applied))
+        plan.log[day] = max(0, (plan.log[day] ?? 0) + applied)
+        state.plan = plan
+        if applied > 0 {
+            state.totalPagesEver += applied
+            state.readingDays.insert(day)
+        }
+        checkCompletion()
+        evaluateBadges()
+        save()
+    }
+
+    func setPosition(_ page: Int) {
+        guard var plan = state.plan else { return }
+        let clamped = min(max(0, page), QuranMap.totalPages)
+        let delta = clamped - plan.position
+        let day = Self.dayKey()
+        plan.position = clamped
+        if delta > 0 {
+            plan.log[day] = (plan.log[day] ?? 0) + delta
+            state.totalPagesEver += delta
+            state.readingDays.insert(day)
+        }
+        state.plan = plan
+        checkCompletion()
+        evaluateBadges()
+        save()
+    }
+
+    private func checkCompletion() {
+        guard var plan = state.plan else { return }
+        if plan.position >= QuranMap.totalPages && plan.completedOn == nil {
+            plan.completedOn = Date()
+            let cal = Calendar.current
+            let days = max(1, (cal.dateComponents([.day], from: cal.startOfDay(for: plan.startDate), to: cal.startOfDay(for: Date())).day ?? 0) + 1)
+            var rec = KhatmRecord()
+            rec.started = plan.startDate
+            rec.finished = Date()
+            rec.days = days
+            state.archive.insert(rec, at: 0)
+            state.plan = plan
+            celebrateKhatm = true
+            QPHaptics.success()
+        } else {
+            state.plan = plan
+        }
+    }
+
+    func closeCompletedKhatm() {
+        state.plan = nil
+        celebrateKhatm = false
+        save()
+    }
+
+    func abandonKhatm() {
+        state.plan = nil
+        save()
+    }
+
+    func markGuideRead(_ id: String) {
+        if !state.guidesRead.contains(id) {
+            state.guidesRead.insert(id)
+            evaluateBadges()
+            save()
+        }
+    }
+
+    func quizFinished(score: Int, total: Int) {
+        state.quizRounds += 1
+        if score > state.quizBest { state.quizBest = score }
+        if score == total { award("qb-quiz") }
+        evaluateBadges()
+        save()
+    }
+
+    func setArabicNames(_ on: Bool) {
+        state.showArabicNames = on
+        save()
+    }
+
+    func setHaptics(_ on: Bool) {
+        state.hapticsOn = on
+        QPHaptics.enabled = on
+        save()
+    }
+
+    func finishOnboarding() {
+        state.onboarded = true
+        save()
+    }
+
+    func resetAll() {
+        state = QPState()
+        state.onboarded = true
+        save()
+    }
+
+    var earnedBadges: [QPBadge] {
+        QPCatalog.badges.filter { state.earned.contains($0.id) }
+    }
+
+    private func award(_ id: String) {
+        guard !state.earned.contains(id) else { return }
+        state.earned.insert(id)
+        if let badge = QPCatalog.badges.first(where: { $0.id == id }) {
+            newBadge = badge
+        }
+    }
+
+    private func evaluateBadges() {
+        let pos = state.plan?.position ?? 0
+        if state.totalPagesEver >= 1 { award("qb-first") }
+        if pos >= 21 || state.totalPagesEver >= 21 { award("qb-juz") }
+        if pos >= 302 { award("qb-half") }
+        if state.archive.count >= 1 { award("qb-khatm") }
+        if state.archive.count >= 3 { award("qb-threekhatms") }
+        if todayRead >= 10 { award("qb-tenday") }
+        if todayRead >= 20 { award("qb-twentyday") }
+        if streak >= 7 { award("qb-week") }
+        if streak >= 30 { award("qb-month") }
+        if state.readingDays.count >= 30 { award("qb-days30") }
+        if state.readingDays.count >= 100 { award("qb-days100") }
+        if state.totalPagesEver >= 604 { award("qb-pages604") }
+        if state.totalPagesEver >= 3020 { award("qb-pages3020") }
+        if QPCatalog.guides.allSatisfy({ state.guidesRead.contains($0.id) }) { award("qb-guides") }
+        if state.quizRounds >= 10 { award("qb-tenquiz") }
+        if let plan = state.plan, plan.mode == .byDate { award("qb-planner") }
+        if let plan = state.plan, QuranMap.juz(forPage: max(1, plan.position)) >= 30, plan.position >= 582 { award("qb-amma") }
+    }
+
+    func heatValue(for date: Date) -> Int {
+        state.plan?.log[Self.dayKey(date)] ?? 0
+    }
+
+    private func publishSnapshot() {
+        let report = pace()
+        let plan = state.plan
+        let page = max(1, min(QuranMap.totalPages, (plan?.position ?? 0) + 1))
+        let juz = QuranMap.juz(forPage: page)
+        let surah = QuranMap.surah(forPage: page)
+        let snap = PaceSnapshot(
+            hasPlan: plan != nil && plan?.completedOn == nil,
+            position: plan?.position ?? 0,
+            percent: report.percent,
+            todayGoal: report.todayGoal,
+            todayRead: report.todayRead,
+            juz: juz,
+            juzOpening: QuranMap.juzOpenings[juz - 1],
+            surahName: surah.translit,
+            streak: streak,
+            statusLine: report.statusLine,
+            targetLine: report.targetLine
+        )
+        PaceShared.save(snap)
+        WidgetCenter.shared.reloadAllTimelines()
+    }
+}
