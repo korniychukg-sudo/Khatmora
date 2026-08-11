@@ -62,10 +62,43 @@ struct MushafView: View {
 
     private var juzList: some View {
         VStack(spacing: 10) {
+            sealsCard
             ForEach(1...30, id: \.self) { juz in
                 juzCard(juz)
             }
         }
+    }
+
+    private var sealsCard: some View {
+        let sealed = store.state.sealedJuz
+        return VStack(alignment: .leading, spacing: 10) {
+            HStack {
+                Text("The thirty seals")
+                    .font(QPTheme.serif(16))
+                    .foregroundColor(QPTheme.ink)
+                Spacer()
+                QPChip(text: "\(sealed.count) of 30", tint: QPTheme.gold)
+            }
+            Text("A seal is struck each time a full part is read to its last page.")
+                .font(QPTheme.text(11))
+                .foregroundColor(QPTheme.inkFaint)
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 6), count: 10), spacing: 8) {
+                ForEach(1...30, id: \.self) { j in
+                    let done = sealed.contains(j)
+                    ZStack {
+                        OctoStar(points: 8)
+                            .fill(done ? QPTheme.gold : QPTheme.line.opacity(0.45))
+                            .frame(width: 26, height: 26)
+                        Text("\(j)")
+                            .font(QPTheme.round(9))
+                            .foregroundColor(done ? .white : QPTheme.inkFaint)
+                    }
+                    .frame(height: 28)
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .qpCard(padding: 14)
     }
 
     private func juzCard(_ juz: Int) -> some View {
@@ -89,6 +122,17 @@ struct MushafView: View {
                 Text("Pages \(range.lowerBound)\u{2013}\(range.upperBound) \u{00B7} \(QuranMap.surah(forPage: range.lowerBound).translit) onward")
                     .font(QPTheme.text(12))
                     .foregroundColor(QPTheme.inkSoft)
+                HStack(spacing: 5) {
+                    ForEach(0..<4, id: \.self) { q in
+                        let qEnd = range.lowerBound + (range.count * (q + 1)) / 4 - 1
+                        Circle()
+                            .fill(position >= qEnd ? QPTheme.gold : QPTheme.line.opacity(0.6))
+                            .frame(width: 6, height: 6)
+                    }
+                    Text("quarters")
+                        .font(QPTheme.text(9))
+                        .foregroundColor(QPTheme.inkFaint)
+                }
             }
             Spacer()
             if fraction >= 1 {

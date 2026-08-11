@@ -2,6 +2,13 @@ import Foundation
 import SwiftUI
 import WidgetKit
 
+struct SittingRecord: Codable, Identifiable, Hashable {
+    var id: UUID = UUID()
+    var date: Date = Date()
+    var minutes: Int = 0
+    var pages: Int = 0
+}
+
 struct QPState: Codable {
     var plan: KhatmPlan? = nil
     var archive: [KhatmRecord] = []
@@ -14,12 +21,16 @@ struct QPState: Codable {
     var showArabicNames: Bool = true
     var hapticsOn: Bool = true
     var onboarded: Bool = false
+    var sittings: [SittingRecord] = []
+    var sealedJuz: Set<Int> = []
+    var bestDayPages: Int = 0
 
     init() {}
 
     enum CodingKeys: String, CodingKey {
         case plan, archive, totalPagesEver, readingDays, guidesRead
         case quizBest, quizRounds, earned, showArabicNames, hapticsOn, onboarded
+        case sittings, sealedJuz, bestDayPages
     }
 
     init(from decoder: Decoder) throws {
@@ -35,6 +46,9 @@ struct QPState: Codable {
         showArabicNames = (try? c.decodeIfPresent(Bool.self, forKey: .showArabicNames)) ?? true
         hapticsOn = (try? c.decodeIfPresent(Bool.self, forKey: .hapticsOn)) ?? true
         onboarded = (try? c.decodeIfPresent(Bool.self, forKey: .onboarded)) ?? false
+        sittings = (try? c.decodeIfPresent([SittingRecord].self, forKey: .sittings)) ?? []
+        sealedJuz = (try? c.decodeIfPresent(Set<Int>.self, forKey: .sealedJuz)) ?? []
+        bestDayPages = (try? c.decodeIfPresent(Int.self, forKey: .bestDayPages)) ?? 0
     }
 }
 
@@ -55,6 +69,7 @@ final class QPStore: ObservableObject {
     @Published var newBadge: QPBadge? = nil
     @Published var activeTab: Int = 0
     @Published var celebrateKhatm: Bool = false
+    @Published var pendingSeal: Int? = nil
 
     private static let key = "quranpace.state.v1"
 
@@ -181,6 +196,8 @@ final class QPStore: ObservableObject {
         plan.pagesPerDay = max(1, pagesPerDay)
         plan.position = min(max(0, page), QuranMap.totalPages)
         state.plan = plan
+        state.sealedJuz = Set((1...30).filter { plan.position >= QuranMap.juzRange($0).upperBound })
+        pendingSeal = nil
         evaluateBadges()
         save()
     }
@@ -197,6 +214,8 @@ final class QPStore: ObservableObject {
             state.totalPagesEver += applied
             state.readingDays.insert(day)
         }
+        state.bestDayPages = max(state.bestDayPages, state.plan?.log[day] ?? 0)
+        checkSeals()
         checkCompletion()
         evaluateBadges()
         save()
@@ -214,9 +233,54 @@ final class QPStore: ObservableObject {
             state.readingDays.insert(day)
         }
         state.plan = plan
+        state.bestDayPages = max(state.bestDayPages, state.plan?.log[day] ?? 0)
+        checkSeals()
         checkCompletion()
         evaluateBadges()
         save()
+    }
+
+    private func checkSeals() {
+        let pos = state.plan?.position ?? 0
+        for j in 1...30 where !state.sealedJuz.contains(j) {
+            if pos >= QuranMap.juzRange(j).upperBound {
+                state.sealedJuz.insert(j)
+                if j < 30 {
+                    pendingSeal = j
+                }
+            }
+        }
+    }
+
+    func recordSitting(minutes: Int, pages: Int) {
+        var rec = SittingRecord()
+        rec.minutes = max(1, minutes)
+        rec.pages = max(0, pages)
+        state.sittings.insert(rec, at: 0)
+        if state.sittings.count > 200 {
+            state.sittings.removeLast(state.sittings.count - 200)
+        }
+        if pages > 0 {
+            logPages(pages)
+        } else {
+            save()
+        }
+    }
+
+    var minutesPerPage: Double? {
+        let sample = state.sittings.prefix(20).filter { $0.pages > 0 }
+        let mins = sample.reduce(0) { $0 + $1.minutes }
+        let pages = sample.reduce(0) { $0 + $1.pages }
+        guard pages >= 3, mins > 0 else { return nil }
+        return Double(mins) / Double(pages)
+    }
+
+    var totalReadingMinutes: Int {
+        state.sittings.reduce(0) { $0 + $1.minutes }
+    }
+
+    var longestSittingMinutes: Int {
+        state.sittings.map { $0.minutes }.max() ?? 0
     }
 
     private func checkCompletion() {

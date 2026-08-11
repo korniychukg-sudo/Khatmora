@@ -7,6 +7,7 @@ struct JournalView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 summaryRow
+                recordsCard
                 weekChart
                 heatmapCard
                 archiveCard
@@ -65,6 +66,60 @@ struct JournalView: View {
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
                         .strokeBorder(QPTheme.line, lineWidth: 1)
                 )
+        )
+    }
+
+    private var recordsCard: some View {
+        Group {
+            if !store.state.sittings.isEmpty || store.state.bestDayPages > 0 {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Records of the reading")
+                        .font(QPTheme.serif(16))
+                        .foregroundColor(QPTheme.ink)
+                    HStack(spacing: 8) {
+                        recordCol(
+                            store.state.bestDayPages > 0 ? "\(store.state.bestDayPages)" : "\u{2014}",
+                            "best day, pages"
+                        )
+                        recordCol(
+                            store.longestSittingMinutes > 0 ? "\(store.longestSittingMinutes)m" : "\u{2014}",
+                            "longest sitting"
+                        )
+                        recordCol(
+                            store.totalReadingMinutes >= 60
+                                ? String(format: "%.1fh", Double(store.totalReadingMinutes) / 60)
+                                : "\(store.totalReadingMinutes)m",
+                            "time with the book"
+                        )
+                        recordCol(
+                            store.minutesPerPage.map { String(format: "%.1f", $0) } ?? "\u{2014}",
+                            "min a page"
+                        )
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .qpCard()
+            }
+        }
+    }
+
+    private func recordCol(_ value: String, _ label: String) -> some View {
+        VStack(spacing: 3) {
+            Text(value)
+                .font(QPTheme.round(17))
+                .foregroundColor(QPTheme.indigo)
+                .lineLimit(1)
+                .minimumScaleFactor(0.6)
+            Text(label)
+                .font(QPTheme.text(9))
+                .foregroundColor(QPTheme.inkFaint)
+                .multilineTextAlignment(.center)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 9)
+        .background(
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .fill(QPTheme.indigoSoft.opacity(0.35))
         )
     }
 

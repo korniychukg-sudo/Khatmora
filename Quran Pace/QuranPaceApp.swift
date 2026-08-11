@@ -4,6 +4,7 @@ import SwiftUI
 struct QuranPaceApp: App {
     @StateObject private var store = QPStore()
 
+
     var body: some Scene {
         WindowGroup {
             Group {
