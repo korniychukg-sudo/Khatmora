@@ -4,6 +4,8 @@ struct SettingsView: View {
     @EnvironmentObject var store: KHStore
     @State private var confirmReset = false
     @State private var confirmAbandon = false
+    @State private var showPrivacy = false
+    private let privacyLink = "https://www.termsfeed.com/live/a6feadbf-fa37-4489-bafb-0e508fb14807"
 
     var body: some View {
         ScrollView {
@@ -104,13 +106,26 @@ struct SettingsView: View {
                 .font(KHTheme.text(13))
                 .foregroundColor(KHTheme.inkSoft)
                 .lineSpacing(4)
-            Text("Los recuentos siguen la edición estándar de Medina: 604 páginas, 30 partes y 114 suras. Todo permanece en este dispositivo: sin cuenta, sin conexión y sin enviar datos fuera del teléfono.")
+            Text("Los recuentos siguen la edición estándar de Medina: 604 páginas, 30 partes y 114 suras. Todo lo que registras permanece en este dispositivo: sin cuenta y sin analítica.")
                 .font(KHTheme.text(13))
                 .foregroundColor(KHTheme.inkSoft)
                 .lineSpacing(4)
+            Button {
+                showPrivacy = true
+            } label: {
+                Text("Política de privacidad")
+                    .font(KHTheme.text(13, .semibold))
+                    .foregroundColor(KHTheme.indigo)
+            }
+            .padding(.top, 2)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .qpCard()
+        .sheet(isPresented: $showPrivacy) {
+            TilawaWebPanel(urlString: privacyLink)
+                .edgesIgnoringSafeArea(.bottom)
+                .background(Color.black.ignoresSafeArea())
+        }
     }
 
     private var abandonCard: some View {
