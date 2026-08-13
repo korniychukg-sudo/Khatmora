@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		QP0000000000000000001101 /* KhatmoraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001001 /* KhatmoraApp.swift */; };
+		QP0000000000000000001102 /* KHTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001002 /* KHTheme.swift */; };
+		QP0000000000000000001103 /* KHModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001003 /* KHModels.swift */; };
+		QP0000000000000000001104 /* QuranMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001004 /* QuranMap.swift */; };
+		QP0000000000000000001105 /* SurahData1.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001005 /* SurahData1.swift */; };
+		QP0000000000000000001106 /* SurahData2.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001006 /* SurahData2.swift */; };
+		QP0000000000000000001107 /* KHLore1.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001007 /* KHLore1.swift */; };
+		QP0000000000000000001108 /* KHLore2.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001008 /* KHLore2.swift */; };
+		QP0000000000000000001109 /* KHQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001009 /* KHQuiz.swift */; };
+		QP0000000000000000001110 /* KHStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001010 /* KHStore.swift */; };
+		QP0000000000000000001111 /* SharedKhatmora.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001011 /* SharedKhatmora.swift */; };
+		QP0000000000000000001112 /* KHHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001012 /* KHHaptics.swift */; };
+		QP0000000000000000001113 /* KHIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001013 /* KHIcons.swift */; };
+		QP0000000000000000001114 /* KHArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001014 /* KHArt.swift */; };
+		QP0000000000000000001115 /* KHComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001015 /* KHComponents.swift */; };
+		QP0000000000000000001116 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001016 /* RootView.swift */; };
+		QP0000000000000000001117 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001017 /* OnboardingView.swift */; };
+		QP0000000000000000001118 /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001018 /* TodayView.swift */; };
+		QP0000000000000000001119 /* MushafView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001019 /* MushafView.swift */; };
+		QP0000000000000000001120 /* SurahsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001020 /* SurahsView.swift */; };
+		QP0000000000000000001121 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001021 /* LearnView.swift */; };
+		QP0000000000000000001122 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001022 /* QuizView.swift */; };
+		QP0000000000000000001123 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001023 /* JournalView.swift */; };
+		QP0000000000000000001124 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001024 /* SettingsView.swift */; };
+		QP0000000000000000001140 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001030 /* Assets.xcassets */; };
+		QP0000000000000000001141 /* Art in Resources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001031 /* Art */; };
+		QP0000000000000000001142 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001034 /* PrivacyInfo.xcprivacy */; };
+		QP0000000000000000001143 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001035 /* Localizable.strings */; };
+		QP0000000000000000001150 /* KhatmoraWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001040 /* KhatmoraWidgets.swift */; };
+		QP0000000000000000001151 /* KHWidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001041 /* KHWidgetViews.swift */; };
+		QP0000000000000000001152 /* SharedKhatmora.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001011 /* SharedKhatmora.swift */; };
+		QP0000000000000000001153 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001044 /* PrivacyInfo.xcprivacy */; };
+		QP0000000000000000001160 /* Khatmora Widgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001051 /* Khatmora Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		QP0000000000000000001180 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = QP0000000000000000001172 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = QP0000000000000000001171;
+			remoteInfo = "Khatmora Widgets";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		QP0000000000000000001176 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				QP0000000000000000001160 /* Khatmora Widgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		QP0000000000000000001001 /* KhatmoraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhatmoraApp.swift; sourceTree = "<group>"; };
+		QP0000000000000000001002 /* KHTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHTheme.swift; sourceTree = "<group>"; };
+		QP0000000000000000001003 /* KHModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHModels.swift; sourceTree = "<group>"; };
+		QP0000000000000000001004 /* QuranMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuranMap.swift; sourceTree = "<group>"; };
+		QP0000000000000000001005 /* SurahData1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahData1.swift; sourceTree = "<group>"; };
+		QP0000000000000000001006 /* SurahData2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahData2.swift; sourceTree = "<group>"; };
+		QP0000000000000000001007 /* KHLore1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHLore1.swift; sourceTree = "<group>"; };
+		QP0000000000000000001008 /* KHLore2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHLore2.swift; sourceTree = "<group>"; };
+		QP0000000000000000001009 /* KHQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHQuiz.swift; sourceTree = "<group>"; };
+		QP0000000000000000001010 /* KHStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHStore.swift; sourceTree = "<group>"; };
+		QP0000000000000000001011 /* SharedKhatmora.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedKhatmora.swift; sourceTree = "<group>"; };
+		QP0000000000000000001012 /* KHHaptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHHaptics.swift; sourceTree = "<group>"; };
+		QP0000000000000000001013 /* KHIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHIcons.swift; sourceTree = "<group>"; };
+		QP0000000000000000001014 /* KHArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHArt.swift; sourceTree = "<group>"; };
+		QP0000000000000000001015 /* KHComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHComponents.swift; sourceTree = "<group>"; };
+		QP0000000000000000001016 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		QP0000000000000000001017 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		QP0000000000000000001018 /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		QP0000000000000000001019 /* MushafView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MushafView.swift; sourceTree = "<group>"; };
+		QP0000000000000000001020 /* SurahsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurahsView.swift; sourceTree = "<group>"; };
+		QP0000000000000000001021 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
+		QP0000000000000000001022 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		QP0000000000000000001023 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
+		QP0000000000000000001024 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		QP0000000000000000001030 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		QP0000000000000000001031 /* Art */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Art; sourceTree = "<group>"; };
+		QP0000000000000000001032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		QP0000000000000000001033 /* Khatmora.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Khatmora.entitlements; sourceTree = "<group>"; };
+		QP0000000000000000001034 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		QP0000000000000000001035 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		QP0000000000000000001040 /* KhatmoraWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhatmoraWidgets.swift; sourceTree = "<group>"; };
+		QP0000000000000000001041 /* KHWidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHWidgetViews.swift; sourceTree = "<group>"; };
+		QP0000000000000000001042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		QP0000000000000000001043 /* KhatmoraWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KhatmoraWidgets.entitlements; sourceTree = "<group>"; };
+		QP0000000000000000001044 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		QP0000000000000000001050 /* Khatmora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Khatmora.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		QP0000000000000000001051 /* Khatmora Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Khatmora Widgets.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		QP0000000000000000001175 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		QP0000000000000000001179 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		QP0000000000000000001166 = {
+			isa = PBXGroup;
+			children = (
+				QP0000000000000000001167 /* Khatmora */,
+				QP0000000000000000001168 /* Khatmora Widgets */,
+				QP0000000000000000001169 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		QP0000000000000000001169 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				QP0000000000000000001050 /* Khatmora.app */,
+				QP0000000000000000001051 /* Khatmora Widgets.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		QP0000000000000000001167 /* Khatmora */ = {
+			isa = PBXGroup;
+			children = (
+				QP0000000000000000001001 /* KhatmoraApp.swift */,
+				QP0000000000000000001002 /* KHTheme.swift */,
+				QP0000000000000000001003 /* KHModels.swift */,
+				QP0000000000000000001004 /* QuranMap.swift */,
+				QP0000000000000000001005 /* SurahData1.swift */,
+				QP0000000000000000001006 /* SurahData2.swift */,
+				QP0000000000000000001007 /* KHLore1.swift */,
+				QP0000000000000000001008 /* KHLore2.swift */,
+				QP0000000000000000001009 /* KHQuiz.swift */,
+				QP0000000000000000001010 /* KHStore.swift */,
+				QP0000000000000000001011 /* SharedKhatmora.swift */,
+				QP0000000000000000001012 /* KHHaptics.swift */,
+				QP0000000000000000001013 /* KHIcons.swift */,
+				QP0000000000000000001014 /* KHArt.swift */,
+				QP0000000000000000001015 /* KHComponents.swift */,
+				QP0000000000000000001016 /* RootView.swift */,
+				QP0000000000000000001017 /* OnboardingView.swift */,
+				QP0000000000000000001018 /* TodayView.swift */,
+				QP0000000000000000001019 /* MushafView.swift */,
+				QP0000000000000000001020 /* SurahsView.swift */,
+				QP0000000000000000001021 /* LearnView.swift */,
+				QP0000000000000000001022 /* QuizView.swift */,
+				QP0000000000000000001023 /* JournalView.swift */,
+				QP0000000000000000001024 /* SettingsView.swift */,
+				QP0000000000000000001030 /* Assets.xcassets */,
+				QP0000000000000000001031 /* Art */,
+				QP0000000000000000001032 /* Info.plist */,
+				QP0000000000000000001033 /* Khatmora.entitlements */,
+				QP0000000000000000001034 /* PrivacyInfo.xcprivacy */,
+				QP0000000000000000001035 /* Localizable.strings */,
+			);
+			path = "Khatmora";
+			sourceTree = "<group>";
+		};
+		QP0000000000000000001168 /* Khatmora Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				QP0000000000000000001040 /* KhatmoraWidgets.swift */,
+				QP0000000000000000001041 /* KHWidgetViews.swift */,
+				QP0000000000000000001042 /* Info.plist */,
+				QP0000000000000000001043 /* KhatmoraWidgets.entitlements */,
+				QP0000000000000000001044 /* PrivacyInfo.xcprivacy */,
+			);
+			path = "Khatmora Widgets";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		QP0000000000000000001170 /* Khatmora */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = QP0000000000000000001189 /* Build configuration list for PBXNativeTarget "Khatmora" */;
+			buildPhases = (
+				QP0000000000000000001173 /* Sources */,
+				QP0000000000000000001175 /* Frameworks */,
+				QP0000000000000000001174 /* Resources */,
+				QP0000000000000000001176 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				QP0000000000000000001181 /* PBXTargetDependency */,
+			);
+			name = "Khatmora";
+			productName = "Khatmora";
+			productReference = QP0000000000000000001050 /* Khatmora.app */;
+			productType = "com.apple.product-type.application";
+		};
+		QP0000000000000000001171 /* Khatmora Widgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = QP0000000000000000001190 /* Build configuration list for PBXNativeTarget "Khatmora Widgets" */;
+			buildPhases = (
+				QP0000000000000000001177 /* Sources */,
+				QP0000000000000000001179 /* Frameworks */,
+				QP0000000000000000001178 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Khatmora Widgets";
+			productName = "Khatmora Widgets";
+			productReference = QP0000000000000000001051 /* Khatmora Widgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		QP0000000000000000001172 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					QP0000000000000000001170 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					QP0000000000000000001171 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = QP0000000000000000001188 /* Build configuration list for PBXProject "Khatmora" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = es;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				es,
+				Base,
+			);
+			mainGroup = QP0000000000000000001166;
+			productRefGroup = QP0000000000000000001169 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				QP0000000000000000001170 /* Khatmora */,
+				QP0000000000000000001171 /* Khatmora Widgets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		QP0000000000000000001174 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				QP0000000000000000001140 /* Assets.xcassets in Resources */,
+				QP0000000000000000001141 /* Art in Resources */,
+				QP0000000000000000001142 /* PrivacyInfo.xcprivacy in Resources */,
+				QP0000000000000000001143 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		QP0000000000000000001178 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				QP0000000000000000001153 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		QP0000000000000000001173 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				QP0000000000000000001101 /* KhatmoraApp.swift in Sources */,
+				QP0000000000000000001102 /* KHTheme.swift in Sources */,
+				QP0000000000000000001103 /* KHModels.swift in Sources */,
+				QP0000000000000000001104 /* QuranMap.swift in Sources */,
+				QP0000000000000000001105 /* SurahData1.swift in Sources */,
+				QP0000000000000000001106 /* SurahData2.swift in Sources */,
+				QP0000000000000000001107 /* KHLore1.swift in Sources */,
+				QP0000000000000000001108 /* KHLore2.swift in Sources */,
+				QP0000000000000000001109 /* KHQuiz.swift in Sources */,
+				QP0000000000000000001110 /* KHStore.swift in Sources */,
+				QP0000000000000000001111 /* SharedKhatmora.swift in Sources */,
+				QP0000000000000000001112 /* KHHaptics.swift in Sources */,
+				QP0000000000000000001113 /* KHIcons.swift in Sources */,
+				QP0000000000000000001114 /* KHArt.swift in Sources */,
+				QP0000000000000000001115 /* KHComponents.swift in Sources */,
+				QP0000000000000000001116 /* RootView.swift in Sources */,
+				QP0000000000000000001117 /* OnboardingView.swift in Sources */,
+				QP0000000000000000001118 /* TodayView.swift in Sources */,
+				QP0000000000000000001119 /* MushafView.swift in Sources */,
+				QP0000000000000000001120 /* SurahsView.swift in Sources */,
+				QP0000000000000000001121 /* LearnView.swift in Sources */,
+				QP0000000000000000001122 /* QuizView.swift in Sources */,
+				QP0000000000000000001123 /* JournalView.swift in Sources */,
+				QP0000000000000000001124 /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		QP0000000000000000001177 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				QP0000000000000000001150 /* KhatmoraWidgets.swift in Sources */,
+				QP0000000000000000001151 /* KHWidgetViews.swift in Sources */,
+				QP0000000000000000001152 /* SharedKhatmora.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		QP0000000000000000001181 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = QP0000000000000000001171 /* Khatmora Widgets */;
+			targetProxy = QP0000000000000000001180 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		QP0000000000000000001182 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.khatmora.app;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		QP0000000000000000001183 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.khatmora.app;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		QP0000000000000000001184 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Khatmora/Khatmora.entitlements";
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Khatmora/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		QP0000000000000000001185 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Khatmora/Khatmora.entitlements";
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Khatmora/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		QP0000000000000000001186 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Khatmora Widgets/KhatmoraWidgets.entitlements";
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Khatmora Widgets/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Khatmora";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).widgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		QP0000000000000000001187 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Khatmora Widgets/KhatmoraWidgets.entitlements";
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Khatmora Widgets/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Khatmora";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).widgets";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		QP0000000000000000001188 /* Build configuration list for PBXProject "Khatmora" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				QP0000000000000000001182 /* Debug */,
+				QP0000000000000000001183 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		QP0000000000000000001189 /* Build configuration list for PBXNativeTarget "Khatmora" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				QP0000000000000000001184 /* Debug */,
+				QP0000000000000000001185 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		QP0000000000000000001190 /* Build configuration list for PBXNativeTarget "Khatmora Widgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				QP0000000000000000001186 /* Debug */,
+				QP0000000000000000001187 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = QP0000000000000000001172 /* Project object */;
+}

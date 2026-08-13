@@ -47,18 +47,18 @@ struct ValidatePace {
         check(QuranMap.surah(forPage: 49).number == 2, "baqarah on page 49")
         check(QuranMap.surah(forPage: 50).number == 3, "imran on page 50")
 
-        check(QPCatalog.guides.count == 9, "9 guides, got \(QPCatalog.guides.count)")
-        for g in QPCatalog.guides {
+        check(KHCatalog.guides.count == 9, "9 guides, got \(KHCatalog.guides.count)")
+        for g in KHCatalog.guides {
             check(g.sections.count >= 3, "guide sections \(g.id)")
             check(!g.facts.isEmpty, "guide facts \(g.id)")
         }
-        check(QPCatalog.glossary.count == 30, "30 terms, got \(QPCatalog.glossary.count)")
-        check(Set(QPCatalog.glossary.map { $0.id }).count == QPCatalog.glossary.count, "glossary unique")
-        check(QPCatalog.badges.count == 18, "18 badges, got \(QPCatalog.badges.count)")
-        check(Set(QPCatalog.badges.map { $0.id }).count == QPCatalog.badges.count, "badges unique")
+        check(KHCatalog.glossary.count == 30, "30 terms, got \(KHCatalog.glossary.count)")
+        check(Set(KHCatalog.glossary.map { $0.id }).count == KHCatalog.glossary.count, "glossary unique")
+        check(KHCatalog.badges.count == 18, "18 badges, got \(KHCatalog.badges.count)")
+        check(Set(KHCatalog.badges.map { $0.id }).count == KHCatalog.badges.count, "badges unique")
 
         for seed in 1...400 {
-            let round = QPQuizEngine.makeRound(count: 10, seed: UInt64(seed))
+            let round = KHQuizEngine.makeRound(count: 10, seed: UInt64(seed))
             check(round.count == 10, "round \(seed) has 10, got \(round.count)")
             for q in round {
                 check(q.options.count == 4, "4 options seed \(seed)")
@@ -70,16 +70,16 @@ struct ValidatePace {
         let art = ["hero-today", "guide-mushaf", "guide-juz", "guide-khatm", "guide-ramadan", "guide-pace",
                    "guide-surah", "guide-makki", "guide-tilawah", "guide-memory",
                    "onboard-1", "onboard-2", "onboard-3", "onboard-4"]
-        let artDir = CommandLine.arguments.count > 1 ? CommandLine.arguments[1] : "../Quran Pace/Art"
+        let artDir = CommandLine.arguments.count > 1 ? CommandLine.arguments[1] : "../Khatmora/Art"
         for a in art {
             check(FileManager.default.fileExists(atPath: "\(artDir)/\(a).jpg"), "art \(a)")
         }
-        for g in QPCatalog.guides {
+        for g in KHCatalog.guides {
             check(art.contains(g.artName), "guide art exists \(g.artName)")
         }
 
         if failures == 0 {
-            print("ALL OK: 114 surahs (6236 ayahs), 30 juz (604 pages), \(QPCatalog.guides.count) guides, \(QPCatalog.glossary.count) terms, \(QPCatalog.badges.count) badges, 400 quiz rounds")
+            print("ALL OK: 114 surahs (6236 ayahs), 30 juz (604 pages), \(KHCatalog.guides.count) guides, \(KHCatalog.glossary.count) terms, \(KHCatalog.badges.count) badges, 400 quiz rounds")
         } else {
             print("\(failures) FAILURES")
             exit(1)

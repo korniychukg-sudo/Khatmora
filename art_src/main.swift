@@ -1,7 +1,7 @@
 import Foundation
 import CoreGraphics
 
-let outDir = CommandLine.arguments.count > 1 ? CommandLine.arguments[1] : "../Quran Pace/Art"
+let outDir = CommandLine.arguments.count > 1 ? CommandLine.arguments[1] : "../Khatmora/Art"
 let S = Scenes(dir: outDir)
 
 extension Pal {
