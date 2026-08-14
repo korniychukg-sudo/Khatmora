@@ -17,7 +17,6 @@
 		QP0000000000000000001108 /* KHLore2.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001008 /* KHLore2.swift */; };
 		QP0000000000000000001109 /* KHQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001009 /* KHQuiz.swift */; };
 		QP0000000000000000001110 /* KHStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001010 /* KHStore.swift */; };
-		QP0000000000000000001111 /* SharedKhatmora.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001011 /* SharedKhatmora.swift */; };
 		QP0000000000000000001112 /* KHHaptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001012 /* KHHaptics.swift */; };
 		QP0000000000000000001113 /* KHIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001013 /* KHIcons.swift */; };
 		QP0000000000000000001114 /* KHArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001014 /* KHArt.swift */; };
@@ -35,36 +34,7 @@
 		QP0000000000000000001141 /* Art in Resources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001031 /* Art */; };
 		QP0000000000000000001142 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001034 /* PrivacyInfo.xcprivacy */; };
 		QP0000000000000000001143 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001035 /* Localizable.strings */; };
-		QP0000000000000000001150 /* KhatmoraWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001040 /* KhatmoraWidgets.swift */; };
-		QP0000000000000000001151 /* KHWidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001041 /* KHWidgetViews.swift */; };
-		QP0000000000000000001152 /* SharedKhatmora.swift in Sources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001011 /* SharedKhatmora.swift */; };
-		QP0000000000000000001153 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001044 /* PrivacyInfo.xcprivacy */; };
-		QP0000000000000000001160 /* Khatmora Widgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = QP0000000000000000001051 /* Khatmora Widgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		QP0000000000000000001180 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = QP0000000000000000001172 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = QP0000000000000000001171;
-			remoteInfo = "Khatmora Widgets";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		QP0000000000000000001176 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				QP0000000000000000001160 /* Khatmora Widgets.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		QP0000000000000000001001 /* KhatmoraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhatmoraApp.swift; sourceTree = "<group>"; };
@@ -77,7 +47,6 @@
 		QP0000000000000000001008 /* KHLore2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHLore2.swift; sourceTree = "<group>"; };
 		QP0000000000000000001009 /* KHQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHQuiz.swift; sourceTree = "<group>"; };
 		QP0000000000000000001010 /* KHStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHStore.swift; sourceTree = "<group>"; };
-		QP0000000000000000001011 /* SharedKhatmora.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedKhatmora.swift; sourceTree = "<group>"; };
 		QP0000000000000000001012 /* KHHaptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHHaptics.swift; sourceTree = "<group>"; };
 		QP0000000000000000001013 /* KHIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHIcons.swift; sourceTree = "<group>"; };
 		QP0000000000000000001014 /* KHArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHArt.swift; sourceTree = "<group>"; };
@@ -94,27 +63,13 @@
 		QP0000000000000000001030 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		QP0000000000000000001031 /* Art */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Art; sourceTree = "<group>"; };
 		QP0000000000000000001032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		QP0000000000000000001033 /* Khatmora.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Khatmora.entitlements; sourceTree = "<group>"; };
 		QP0000000000000000001034 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		QP0000000000000000001035 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		QP0000000000000000001040 /* KhatmoraWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhatmoraWidgets.swift; sourceTree = "<group>"; };
-		QP0000000000000000001041 /* KHWidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KHWidgetViews.swift; sourceTree = "<group>"; };
-		QP0000000000000000001042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		QP0000000000000000001043 /* KhatmoraWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KhatmoraWidgets.entitlements; sourceTree = "<group>"; };
-		QP0000000000000000001044 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		QP0000000000000000001050 /* Khatmora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Khatmora.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		QP0000000000000000001051 /* Khatmora Widgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Khatmora Widgets.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		QP0000000000000000001175 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		QP0000000000000000001179 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -128,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				QP0000000000000000001167 /* Khatmora */,
-				QP0000000000000000001168 /* Khatmora Widgets */,
 				QP0000000000000000001169 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -137,8 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				QP0000000000000000001050 /* Khatmora.app */,
-				QP0000000000000000001051 /* Khatmora Widgets.appex */,
-			);
+					);
 			name = Products;
 			sourceTree = "<group>";
 		};
@@ -155,7 +108,6 @@
 				QP0000000000000000001008 /* KHLore2.swift */,
 				QP0000000000000000001009 /* KHQuiz.swift */,
 				QP0000000000000000001010 /* KHStore.swift */,
-				QP0000000000000000001011 /* SharedKhatmora.swift */,
 				QP0000000000000000001012 /* KHHaptics.swift */,
 				QP0000000000000000001013 /* KHIcons.swift */,
 				QP0000000000000000001014 /* KHArt.swift */,
@@ -172,23 +124,10 @@
 				QP0000000000000000001030 /* Assets.xcassets */,
 				QP0000000000000000001031 /* Art */,
 				QP0000000000000000001032 /* Info.plist */,
-				QP0000000000000000001033 /* Khatmora.entitlements */,
-				QP0000000000000000001034 /* PrivacyInfo.xcprivacy */,
+						QP0000000000000000001034 /* PrivacyInfo.xcprivacy */,
 				QP0000000000000000001035 /* Localizable.strings */,
 			);
 			path = "Khatmora";
-			sourceTree = "<group>";
-		};
-		QP0000000000000000001168 /* Khatmora Widgets */ = {
-			isa = PBXGroup;
-			children = (
-				QP0000000000000000001040 /* KhatmoraWidgets.swift */,
-				QP0000000000000000001041 /* KHWidgetViews.swift */,
-				QP0000000000000000001042 /* Info.plist */,
-				QP0000000000000000001043 /* KhatmoraWidgets.entitlements */,
-				QP0000000000000000001044 /* PrivacyInfo.xcprivacy */,
-			);
-			path = "Khatmora Widgets";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,34 +140,15 @@
 				QP0000000000000000001173 /* Sources */,
 				QP0000000000000000001175 /* Frameworks */,
 				QP0000000000000000001174 /* Resources */,
-				QP0000000000000000001176 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				QP0000000000000000001181 /* PBXTargetDependency */,
 			);
 			name = "Khatmora";
 			productName = "Khatmora";
 			productReference = QP0000000000000000001050 /* Khatmora.app */;
 			productType = "com.apple.product-type.application";
-		};
-		QP0000000000000000001171 /* Khatmora Widgets */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = QP0000000000000000001190 /* Build configuration list for PBXNativeTarget "Khatmora Widgets" */;
-			buildPhases = (
-				QP0000000000000000001177 /* Sources */,
-				QP0000000000000000001179 /* Frameworks */,
-				QP0000000000000000001178 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Khatmora Widgets";
-			productName = "Khatmora Widgets";
-			productReference = QP0000000000000000001051 /* Khatmora Widgets.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -241,9 +161,6 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					QP0000000000000000001170 = {
-						CreatedOnToolsVersion = 16.0;
-					};
-					QP0000000000000000001171 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
@@ -262,7 +179,6 @@
 			projectRoot = "";
 			targets = (
 				QP0000000000000000001170 /* Khatmora */,
-				QP0000000000000000001171 /* Khatmora Widgets */,
 			);
 		};
 /* End PBXProject section */
@@ -276,14 +192,6 @@
 				QP0000000000000000001141 /* Art in Resources */,
 				QP0000000000000000001142 /* PrivacyInfo.xcprivacy in Resources */,
 				QP0000000000000000001143 /* Localizable.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		QP0000000000000000001178 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				QP0000000000000000001153 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +212,6 @@
 				QP0000000000000000001108 /* KHLore2.swift in Sources */,
 				QP0000000000000000001109 /* KHQuiz.swift in Sources */,
 				QP0000000000000000001110 /* KHStore.swift in Sources */,
-				QP0000000000000000001111 /* SharedKhatmora.swift in Sources */,
 				QP0000000000000000001112 /* KHHaptics.swift in Sources */,
 				QP0000000000000000001113 /* KHIcons.swift in Sources */,
 				QP0000000000000000001114 /* KHArt.swift in Sources */,
@@ -321,25 +228,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		QP0000000000000000001177 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				QP0000000000000000001150 /* KhatmoraWidgets.swift in Sources */,
-				QP0000000000000000001151 /* KHWidgetViews.swift in Sources */,
-				QP0000000000000000001152 /* SharedKhatmora.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		QP0000000000000000001181 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = QP0000000000000000001171 /* Khatmora Widgets */;
-			targetProxy = QP0000000000000000001180 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		QP0000000000000000001182 /* Debug */ = {
@@ -437,7 +326,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Khatmora/Khatmora.entitlements";
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -467,7 +355,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Khatmora/Khatmora.entitlements";
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -483,68 +370,6 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		QP0000000000000000001186 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Khatmora Widgets/KhatmoraWidgets.entitlements";
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Khatmora Widgets/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Khatmora";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).widgets";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		QP0000000000000000001187 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Khatmora Widgets/KhatmoraWidgets.entitlements";
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Khatmora Widgets/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Khatmora";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited).widgets";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -572,15 +397,6 @@
 			buildConfigurations = (
 				QP0000000000000000001184 /* Debug */,
 				QP0000000000000000001185 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		QP0000000000000000001190 /* Build configuration list for PBXNativeTarget "Khatmora Widgets" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				QP0000000000000000001186 /* Debug */,
-				QP0000000000000000001187 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

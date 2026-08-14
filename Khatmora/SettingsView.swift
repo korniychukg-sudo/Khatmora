@@ -11,7 +11,6 @@ struct SettingsView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 togglesCard
-                widgetsCard
                 aboutCard
                 if store.state.plan != nil {
                     abandonCard
@@ -83,19 +82,6 @@ struct SettingsView: View {
         .khCard()
     }
 
-    private var widgetsCard: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Widgets")
-                .font(KHTheme.serif(16))
-                .foregroundColor(KHTheme.ink)
-            Text("Khatmora incluye widgets para la pantalla bloqueada y la pantalla de inicio: la porción de hoy con su progreso y el jatm completo como un anillo. Añádelos desde la galería de widgets y busca Khatmora.")
-                .font(KHTheme.text(13))
-                .foregroundColor(KHTheme.inkSoft)
-                .lineSpacing(4)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .khCard()
-    }
 
     private var aboutCard: some View {
         VStack(alignment: .leading, spacing: 8) {

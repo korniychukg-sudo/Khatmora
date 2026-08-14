@@ -8,7 +8,7 @@ struct OnboardingView: View {
         ("onboard-1", "El cuaderno junto a tu mushaf", "Khatmora no contiene el texto coránico. Lees en el ejemplar que prefieras, impreso o digital, y aquí conservas el mapa, el marcador, la porción diaria y el ritmo."),
         ("onboard-2", "Las 604 páginas, en un mapa", "Todo el mushaf aparece como una cuadrícula de páginas y treinta partes. Toca el punto donde te detuviste y el mapa se completa detrás del marcador, yuz a yuz."),
         ("onboard-3", "Un ritmo que dice la verdad", "Elige una fecha final y recibe una porción diaria realista, recalculada cuando la vida se interpone. O fija las páginas diarias y observa cómo se acerca la fecha prevista."),
-        ("onboard-4", "En la pantalla bloqueada", "Los widgets muestran la porción de hoy y el progreso del jatm en la pantalla bloqueada, la pantalla de inicio y En reposo. La siguiente página siempre está a la vista.")
+        ("onboard-4", "El anillo del jatm", "Cada página registrada llena un poco más el anillo de la lectura completa. Las treinta partes se sellan una a una y el diario guarda tus rachas, tu ritmo y cada jatm terminado.")
     ]
 
     var body: some View {

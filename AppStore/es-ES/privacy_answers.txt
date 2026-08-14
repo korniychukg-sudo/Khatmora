@@ -5,4 +5,4 @@ Analítica: no
 Cuenta obligatoria: no
 Datos enviados fuera del dispositivo: no
 
-El plan, el progreso, las sesiones, los logros y las entradas opcionales del diario se guardan localmente. El contenedor compartido solo permite mostrar el progreso en los widgets.
+El plan, el progreso, las sesiones, los logros y las entradas opcionales del diario se guardan localmente en el dispositivo.

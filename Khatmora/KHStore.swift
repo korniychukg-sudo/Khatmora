@@ -1,6 +1,5 @@
 import Foundation
 import SwiftUI
-import WidgetKit
 
 struct SittingRecord: Codable, Identifiable, Hashable {
     var id: UUID = UUID()
@@ -95,7 +94,6 @@ final class KHStore: ObservableObject {
             state = KHState()
         }
         KHHaptics.enabled = state.hapticsOn
-        publishSnapshot()
     }
 
     func prepareScreenshotStateIfNeeded() {
@@ -135,7 +133,6 @@ final class KHStore: ObservableObject {
         if let data = try? JSONEncoder().encode(state) {
             UserDefaults.standard.set(data, forKey: Self.key)
         }
-        publishSnapshot()
     }
 
     static func dayKey(_ date: Date = Date()) -> String {
@@ -421,26 +418,4 @@ final class KHStore: ObservableObject {
         state.plan?.log[Self.dayKey(date)] ?? 0
     }
 
-    private func publishSnapshot() {
-        let report = pace()
-        let plan = state.plan
-        let page = max(1, min(QuranMap.totalPages, (plan?.position ?? 0) + 1))
-        let juz = QuranMap.juz(forPage: page)
-        let surah = QuranMap.surah(forPage: page)
-        let snap = KhatmoraSnapshot(
-            hasPlan: plan != nil && plan?.completedOn == nil,
-            position: plan?.position ?? 0,
-            percent: report.percent,
-            todayGoal: report.todayGoal,
-            todayRead: report.todayRead,
-            juz: juz,
-            juzOpening: QuranMap.juzOpenings[juz - 1],
-            surahName: surah.translit,
-            streak: streak,
-            statusLine: report.statusLine,
-            targetLine: report.targetLine
-        )
-        KhatmoraShared.save(snap)
-        WidgetCenter.shared.reloadAllTimelines()
-    }
 }
