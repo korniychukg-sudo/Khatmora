@@ -115,7 +115,7 @@ struct QuizView: View {
                         .foregroundColor(KHTheme.inkSoft)
                         .lineSpacing(4)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .qpCard(padding: 13)
+                        .khCard(padding: 13)
                     Button {
                         next()
                     } label: {

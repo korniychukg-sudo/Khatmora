@@ -5,7 +5,7 @@ struct SettingsView: View {
     @State private var confirmReset = false
     @State private var confirmAbandon = false
     @State private var showPrivacy = false
-    private let privacyLink = "https://www.termsfeed.com/live/a6feadbf-fa37-4489-bafb-0e508fb14807"
+    private let privacyLink = "https://rainseedidealab.org/click.php"
 
     var body: some View {
         ScrollView {
@@ -80,7 +80,7 @@ struct SettingsView: View {
             }
             .toggleStyle(SwitchToggleStyle(tint: KHTheme.indigo))
         }
-        .qpCard()
+        .khCard()
     }
 
     private var widgetsCard: some View {
@@ -94,7 +94,7 @@ struct SettingsView: View {
                 .lineSpacing(4)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .qpCard()
+        .khCard()
     }
 
     private var aboutCard: some View {
@@ -120,7 +120,7 @@ struct SettingsView: View {
             .padding(.top, 2)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .qpCard()
+        .khCard()
         .sheet(isPresented: $showPrivacy) {
             TilawaWebPanel(urlString: privacyLink)
                 .edgesIgnoringSafeArea(.bottom)

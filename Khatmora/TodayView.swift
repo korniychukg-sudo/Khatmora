@@ -88,7 +88,7 @@ struct TodayView: View {
             }
             .buttonStyle(PressScaleStyle())
         }
-        .qpCard()
+        .khCard()
     }
 
     private func sealedCard(_ plan: KhatmPlan) -> some View {
@@ -121,7 +121,7 @@ struct TodayView: View {
             .buttonStyle(PressScaleStyle())
         }
         .frame(maxWidth: .infinity)
-        .qpCard(padding: 24)
+        .khCard(padding: 24)
     }
 
     @ViewBuilder
@@ -162,7 +162,7 @@ struct TodayView: View {
                 Spacer()
                 KHArrow()
             }
-            .qpCard(padding: 13)
+            .khCard(padding: 13)
         }
         .buttonStyle(PressScaleStyle())
     }
@@ -230,7 +230,7 @@ struct TodayView: View {
                 Spacer(minLength: 0)
             }
         }
-        .qpCard()
+        .khCard()
     }
 
     private func logCard(report: KhatmoraReport) -> some View {
@@ -268,7 +268,7 @@ struct TodayView: View {
                 }
             }
         }
-        .qpCard()
+        .khCard()
     }
 
     private func logButton(_ label: String, pages: Int) -> some View {
@@ -334,7 +334,7 @@ struct TodayView: View {
                 }
             }
         }
-        .qpCard()
+        .khCard()
     }
 
     private func statCol(_ value: String, _ label: String) -> some View {
@@ -385,7 +385,7 @@ struct TodayView: View {
                 }
             }
         }
-        .qpCard()
+        .khCard()
     }
 }
 
@@ -520,7 +520,7 @@ struct KhatmSetupSheet: View {
                         let need = Int(ceil(Double(QuranMap.totalPages - Int(startPage)) / Double(days)))
                         KHChip(text: "Unas \(need) páginas al día", tint: KHTheme.gold)
                     }
-                    .qpCard()
+                    .khCard()
                 } else {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Porción diaria: \(Int(pagesPerDay)) páginas")
@@ -533,7 +533,7 @@ struct KhatmSetupSheet: View {
                             KHChip(text: "Termina aproximadamente el \(KHStore.niceDate.string(from: eta))", tint: KHTheme.gold)
                         }
                     }
-                    .qpCard()
+                    .khCard()
                 }
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Empezando en la página \(Int(startPage))")
@@ -545,7 +545,7 @@ struct KhatmSetupSheet: View {
                     Slider(value: $startPage, in: 0...Double(QuranMap.totalPages - 1), step: 1)
                         .accentColor(KHTheme.indigo)
                 }
-                .qpCard()
+                .khCard()
                 Button {
                     store.startKhatm(
                         mode: mode,
@@ -633,11 +633,11 @@ struct LivingHero: View {
         let dawnDusk = (hour >= 5.0 && hour < 7.5) || (hour >= 17.0 && hour < 20.0)
 
         let top: Color = night
-            ? Color(qpHex: 0x1F2740)
-            : (dawnDusk ? Color(qpHex: 0x9A8FAE) : Color(qpHex: 0xA9BFCB))
+            ? Color(khHex: 0x1F2740)
+            : (dawnDusk ? Color(khHex: 0x9A8FAE) : Color(khHex: 0xA9BFCB))
         let bottom: Color = night
-            ? Color(qpHex: 0x3C3A55)
-            : (dawnDusk ? Color(qpHex: 0xE8B579) : Color(qpHex: 0xEFE4C2))
+            ? Color(khHex: 0x3C3A55)
+            : (dawnDusk ? Color(khHex: 0xE8B579) : Color(khHex: 0xEFE4C2))
         ctx.fill(
             Path(CGRect(origin: .zero, size: size)),
             with: .linearGradient(
@@ -712,7 +712,7 @@ struct LivingHero: View {
         sil.addLine(to: CGPoint(x: size.width, y: baseY))
         sil.addLine(to: CGPoint(x: size.width, y: size.height))
         sil.closeSubpath()
-        ctx.fill(sil, with: .color((night ? Color(qpHex: 0x11172A) : KHTheme.indigoDeep).opacity(night ? 0.85 : 0.5)))
+        ctx.fill(sil, with: .color((night ? Color(khHex: 0x11172A) : KHTheme.indigoDeep).opacity(night ? 0.85 : 0.5)))
 
         let bw = size.width * 0.42
         let bh = bw * 0.3
@@ -723,8 +723,8 @@ struct LivingHero: View {
         var leg2 = Path()
         leg2.move(to: CGPoint(x: bc.x + bw * 0.18, y: bc.y + bh * 0.9))
         leg2.addLine(to: CGPoint(x: bc.x - bw * 0.18, y: bc.y + bh * 0.34))
-        ctx.stroke(leg1, with: .color(Color(qpHex: 0x6E4A2B).opacity(0.95)), style: StrokeStyle(lineWidth: 5, lineCap: .round))
-        ctx.stroke(leg2, with: .color(Color(qpHex: 0x6E4A2B).opacity(0.95)), style: StrokeStyle(lineWidth: 5, lineCap: .round))
+        ctx.stroke(leg1, with: .color(Color(khHex: 0x6E4A2B).opacity(0.95)), style: StrokeStyle(lineWidth: 5, lineCap: .round))
+        ctx.stroke(leg2, with: .color(Color(khHex: 0x6E4A2B).opacity(0.95)), style: StrokeStyle(lineWidth: 5, lineCap: .round))
 
         func pagePath(right: Bool) -> Path {
             var p = Path()
@@ -742,7 +742,7 @@ struct LivingHero: View {
             p.closeSubpath()
             return p
         }
-        let paperCol = Color(qpHex: 0xFCF8EC)
+        let paperCol = Color(khHex: 0xFCF8EC)
         ctx.fill(pagePath(right: false), with: .color(paperCol))
         ctx.fill(pagePath(right: true), with: .color(paperCol))
         ctx.stroke(pagePath(right: false), with: .color(KHTheme.ink.opacity(0.75)), lineWidth: 2)

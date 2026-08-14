@@ -20,7 +20,7 @@ struct JournalView: View {
                         Spacer()
                         KHArrow()
                     }
-                    .qpCard(padding: 14)
+                    .khCard(padding: 14)
                 }
                 .buttonStyle(PressScaleStyle())
             }
@@ -98,7 +98,7 @@ struct JournalView: View {
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .qpCard()
+                .khCard()
             }
         }
     }
@@ -159,7 +159,7 @@ struct JournalView: View {
                 }
             }
         }
-        .qpCard()
+        .khCard()
     }
 
     static let weekdayFormatter: DateFormatter = {
@@ -181,7 +181,7 @@ struct JournalView: View {
                     .foregroundColor(KHTheme.inkFaint)
                 ForEach(0..<4, id: \.self) { i in
                     RoundedRectangle(cornerRadius: 3)
-                        .fill(qpHeatColor(i))
+                        .fill(khHeatColor(i))
                         .frame(width: 14, height: 14)
                 }
                 Text("más")
@@ -190,7 +190,7 @@ struct JournalView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .qpCard()
+        .khCard()
     }
 
     private var archiveCard: some View {
@@ -227,7 +227,7 @@ struct JournalView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .qpCard()
+        .khCard()
     }
 
     private var badgesCard: some View {
@@ -267,11 +267,11 @@ struct JournalView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .qpCard()
+        .khCard()
     }
 }
 
-func qpHeatColor(_ level: Int) -> Color {
+func khHeatColor(_ level: Int) -> Color {
     switch level {
     case 0: return KHTheme.line.opacity(0.35)
     case 1: return KHTheme.indigo.opacity(0.3)
@@ -290,7 +290,7 @@ struct KHHeatGrid: View {
             ForEach(days, id: \.self) { day in
                 let v = store.heatValue(for: day)
                 RoundedRectangle(cornerRadius: 4)
-                    .fill(qpHeatColor(levelFor(v)))
+                    .fill(khHeatColor(levelFor(v)))
                     .frame(height: 22)
                     .overlay(
                         Group {

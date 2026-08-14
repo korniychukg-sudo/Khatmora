@@ -61,7 +61,7 @@ struct LearnView: View {
             Spacer()
             KHArrow()
         }
-        .qpCard(padding: 12)
+        .khCard(padding: 12)
     }
 
     private var quizCard: some View {
@@ -86,7 +86,7 @@ struct LearnView: View {
             Spacer()
             KHArrow()
         }
-        .qpCard(padding: 12)
+        .khCard(padding: 12)
     }
 
     private var glossaryCard: some View {
@@ -106,7 +106,7 @@ struct LearnView: View {
             Spacer()
             KHArrow()
         }
-        .qpCard(padding: 12)
+        .khCard(padding: 12)
     }
 }
 
@@ -131,7 +131,7 @@ struct KHGuideDetailView: View {
                             .foregroundColor(KHTheme.ink.opacity(0.85))
                             .lineSpacing(5)
                     }
-                    .qpCard()
+                    .khCard()
                 }
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Para recordar")
@@ -150,7 +150,7 @@ struct KHGuideDetailView: View {
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .qpCard()
+                .khCard()
             }
             .padding(16)
             .padding(.bottom, 12)
@@ -200,7 +200,7 @@ struct KHGlossaryView: View {
                             .lineSpacing(3)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .qpCard(padding: 13)
+                    .khCard(padding: 13)
                 }
             }
             .padding(16)

@@ -98,7 +98,7 @@ struct MushafView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .qpCard(padding: 14)
+        .khCard(padding: 14)
     }
 
     private func juzCard(_ juz: Int) -> some View {

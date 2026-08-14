@@ -1,31 +1,31 @@
 import SwiftUI
 
 extension Color {
-    init(qpHex: UInt32) {
-        let r = Double((qpHex >> 16) & 0xFF) / 255.0
-        let g = Double((qpHex >> 8) & 0xFF) / 255.0
-        let b = Double(qpHex & 0xFF) / 255.0
+    init(khHex: UInt32) {
+        let r = Double((khHex >> 16) & 0xFF) / 255.0
+        let g = Double((khHex >> 8) & 0xFF) / 255.0
+        let b = Double(khHex & 0xFF) / 255.0
         self.init(red: r, green: g, blue: b)
     }
 }
 
 enum KHTheme {
-    static let paper = Color(qpHex: 0xF7F2E6)
-    static let paperDeep = Color(qpHex: 0xEFE7D2)
-    static let card = Color(qpHex: 0xFDFAF1)
-    static let ink = Color(qpHex: 0x232019)
-    static let inkSoft = Color(qpHex: 0x585144)
-    static let inkFaint = Color(qpHex: 0x8B826E)
-    static let indigo = Color(qpHex: 0x2C3B66)
-    static let indigoDeep = Color(qpHex: 0x1C2745)
-    static let indigoSoft = Color(qpHex: 0xDCE0EC)
-    static let gold = Color(qpHex: 0xB4892F)
-    static let goldSoft = Color(qpHex: 0xE9D9AC)
-    static let rose = Color(qpHex: 0x9C4A50)
-    static let roseSoft = Color(qpHex: 0xEFD9D4)
-    static let sage = Color(qpHex: 0x5A7059)
-    static let sageSoft = Color(qpHex: 0xDDE5D9)
-    static let line = Color(qpHex: 0xDCD2B8)
+    static let paper = Color(khHex: 0xF7F2E6)
+    static let paperDeep = Color(khHex: 0xEFE7D2)
+    static let card = Color(khHex: 0xFDFAF1)
+    static let ink = Color(khHex: 0x232019)
+    static let inkSoft = Color(khHex: 0x585144)
+    static let inkFaint = Color(khHex: 0x8B826E)
+    static let indigo = Color(khHex: 0x2C3B66)
+    static let indigoDeep = Color(khHex: 0x1C2745)
+    static let indigoSoft = Color(khHex: 0xDCE0EC)
+    static let gold = Color(khHex: 0xB4892F)
+    static let goldSoft = Color(khHex: 0xE9D9AC)
+    static let rose = Color(khHex: 0x9C4A50)
+    static let roseSoft = Color(khHex: 0xEFD9D4)
+    static let sage = Color(khHex: 0x5A7059)
+    static let sageSoft = Color(khHex: 0xDDE5D9)
+    static let line = Color(khHex: 0xDCD2B8)
 
     static let corner: CGFloat = 18
 
@@ -61,5 +61,5 @@ struct KHCardStyle: ViewModifier {
 }
 
 extension View {
-    func qpCard(padding: CGFloat = 16) -> some View { modifier(KHCardStyle(padding: padding)) }
+    func khCard(padding: CGFloat = 16) -> some View { modifier(KHCardStyle(padding: padding)) }
 }
