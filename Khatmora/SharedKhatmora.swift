@@ -1,7 +1,7 @@
 import Foundation
 
 enum KhatmoraShared {
-    static let appGroup = "group.com.khatmora.app"
+    static let appGroup = "group.com.indigorehal.khatmora"
     static let snapshotKey = "khatmora.widget.v1"
 
     static var defaults: UserDefaults {
