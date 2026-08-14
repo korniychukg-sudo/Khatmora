@@ -71,7 +71,7 @@ final class KHStore: ObservableObject {
     @Published var celebrateKhatm: Bool = false
     @Published var pendingSeal: Int? = nil
 
-    private static let key = "quranpace.state.v1"
+    private static let key = "khatmora.state.v1"
 
     static let dayFormatter: DateFormatter = {
         let f = DateFormatter()
